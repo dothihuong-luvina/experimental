@@ -20,7 +20,7 @@ import org.ops4j.pax.exam.spi.reactors.PerClass;
 import org.junit.runner.JUnitCore;
 import org.osgi.service.cm.ManagedService;
 import service.LogStat;
-import test.groovy.TestUTCommon;
+import test.groovy.common.TestUTCommon;
 import java.util.Calendar;
 import java.util.Date;
 import java.text.SimpleDateFormat;
