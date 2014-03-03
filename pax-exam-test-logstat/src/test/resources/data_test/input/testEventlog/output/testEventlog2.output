@@ -1,0 +1,76 @@
+{"source_name"=>"LOGSTAT", "type"=>"WARNING", "time"=>"20140303091301.000000+420", "message"=>"3-This is a warning event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140303091301.000000+420", "message"=>"2-This is another error event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140303091300.000000+420", "message"=>"1-This is an error event of LOGSTAT application \r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"WARNING", "time"=>"20140303091259.000000+420", "message"=>"3-This is a warning event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140303091259.000000+420", "message"=>"2-This is another error event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140303091259.000000+420", "message"=>"1-This is an error event of LOGSTAT application \r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"WARNING", "time"=>"20140303091151.000000+420", "message"=>"3-This is a warning event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140303091150.000000+420", "message"=>"2-This is another error event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140303091150.000000+420", "message"=>"1-This is an error event of LOGSTAT application \r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"WARNING", "time"=>"20140227150815.000000+420", "message"=>"3-This is a warning event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227150815.000000+420", "message"=>"2-This is another error event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227150814.000000+420", "message"=>"1-This is an error event of LOGSTAT application \r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"WARNING", "time"=>"20140227150400.000000+420", "message"=>"3-This is a warning event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227150400.000000+420", "message"=>"2-This is another error event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227150359.000000+420", "message"=>"1-This is an error event of LOGSTAT application \r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"WARNING", "time"=>"20140227150110.000000+420", "message"=>"3-This is a warning event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227150109.000000+420", "message"=>"2-This is another error event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227150109.000000+420", "message"=>"1-This is an error event of LOGSTAT application \r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"WARNING", "time"=>"20140227145657.000000+420", "message"=>"3-This is a warning event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227145656.000000+420", "message"=>"2-This is another error event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227145655.000000+420", "message"=>"1-This is an error event of LOGSTAT application \r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"WARNING", "time"=>"20140227140930.000000+420", "message"=>"3-This is a warning event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227140929.000000+420", "message"=>"2-This is another error event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227140928.000000+420", "message"=>"1-This is an error event of LOGSTAT application \r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"WARNING", "time"=>"20140227140701.000000+420", "message"=>"3-This is a warning event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227140701.000000+420", "message"=>"2-This is another error event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227140700.000000+420", "message"=>"1-This is an error event of LOGSTAT application \r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"WARNING", "time"=>"20140227140309.000000+420", "message"=>"3-This is a warning event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227140309.000000+420", "message"=>"2-This is another error event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227140308.000000+420", "message"=>"1-This is an error event of LOGSTAT application \r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"WARNING", "time"=>"20140227140044.000000+420", "message"=>"3-This is a warning event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227140042.000000+420", "message"=>"2-This is another error event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227140042.000000+420", "message"=>"1-This is an error event of LOGSTAT application \r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"WARNING", "time"=>"20140227135704.000000+420", "message"=>"3-This is a warning event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"WARNING", "time"=>"20140227135140.000000+420", "message"=>"3-This is a warning event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227135139.000000+420", "message"=>"2-This is another error event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227135139.000000+420", "message"=>"1-This is an error event of LOGSTAT application \r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"WARNING", "time"=>"20140227135137.000000+420", "message"=>"3-This is a warning event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227135137.000000+420", "message"=>"2-This is another error event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227135136.000000+420", "message"=>"1-This is an error event of LOGSTAT application \r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"WARNING", "time"=>"20140227135135.000000+420", "message"=>"3-This is a warning event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227135134.000000+420", "message"=>"2-This is another error event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227135133.000000+420", "message"=>"1-This is an error event of LOGSTAT application \r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"WARNING", "time"=>"20140227135132.000000+420", "message"=>"3-This is a warning event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"WARNING", "time"=>"20140227135132.000000+420", "message"=>"3-This is a warning event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227135131.000000+420", "message"=>"2-This is another error event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227135131.000000+420", "message"=>"2-This is another error event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227135130.000000+420", "message"=>"1-This is an error event of LOGSTAT application \r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227135130.000000+420", "message"=>"1-This is an error event of LOGSTAT application \r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"WARNING", "time"=>"20140227135122.000000+420", "message"=>"3-This is a warning event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227135121.000000+420", "message"=>"2-This is another error event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227135120.000000+420", "message"=>"1-This is an error event of LOGSTAT application \r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"WARNING", "time"=>"20140227135022.000000+420", "message"=>"3-This is a warning event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227135021.000000+420", "message"=>"2-This is another error event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227135021.000000+420", "message"=>"1-This is an error event of LOGSTAT application \r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"WARNING", "time"=>"20140227134104.000000+420", "message"=>"3-This is a warning event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227134104.000000+420", "message"=>"2-This is another error event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227134103.000000+420", "message"=>"1-This is an error event of LOGSTAT application \r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"WARNING", "time"=>"20140227134057.000000+420", "message"=>"3-This is a warning event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227134057.000000+420", "message"=>"2-This is another error event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227134056.000000+420", "message"=>"1-This is an error event of LOGSTAT application \r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"WARNING", "time"=>"20140227134050.000000+420", "message"=>"3-This is a warning event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227134049.000000+420", "message"=>"2-This is another error event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227134049.000000+420", "message"=>"1-This is an error event of LOGSTAT application \r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"WARNING", "time"=>"20140227133938.000000+420", "message"=>"3-This is a warning event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227133937.000000+420", "message"=>"2-This is another error event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227133936.000000+420", "message"=>"1-This is an error event of LOGSTAT application \r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"WARNING", "time"=>"20140227133320.000000+420", "message"=>"3-This is a warning event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227133319.000000+420", "message"=>"2-This is another error event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227133318.000000+420", "message"=>"1-This is an error event of LOGSTAT application \r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"WARNING", "time"=>"20140227115926.000000+420", "message"=>"3-This is a warning event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227115925.000000+420", "message"=>"2-This is another error event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227115925.000000+420", "message"=>"1-This is an error event of LOGSTAT application \r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"WARNING", "time"=>"20140227115213.000000+420", "message"=>"3-This is a warning event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227115212.000000+420", "message"=>"2-This is another error event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140227115212.000000+420", "message"=>"1-This is an error event of LOGSTAT application \r\n"}

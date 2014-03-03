@@ -1,0 +1,5 @@
+{"date"=>"2014-02-01", "time"=>"00:51:52", "message"=>"Security policy in the Group policy objects has been applied successfully."}
+{"date"=>"2014-02-02", "time"=>"16:13:59", "message"=>"Windows cannot query for the list of Group Policy objects"}
+{"date"=>"2014-02-03", "time"=>"16:13:59", "message"=>"Windows cannot access the file gpt.ini for GPO "}
+{"date"=>"2014-02-04", "time"=>"16:05:12", "message"=>"Windows cannot query for the list of Group Pol"}
+{"date"=>"2014-02-05", "time"=>"16:05:12", "message"=>"Windows cannot access the file gpt.ini for GPO "}
