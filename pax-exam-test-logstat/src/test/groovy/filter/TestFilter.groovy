@@ -106,10 +106,9 @@ public class TestFilter {
 	 * Record log mapping with mapFilterConf.
 	 * Expected: return all of data corresponding to input data.  
 	 */
-    @Test
+   @Test
     public void testFilter_01() {
 		input_conf.put("start_file_name", "result_testString_01.log");
-
 		conf.put("input",input_conf);
 		conf.put("filter",filter);
 		conf.put("output",output_conf);
@@ -146,6 +145,8 @@ public class TestFilter {
 		result = (new File(wd + "/output.log")).text
 		// get data expected to comparse
 		expected = (new File(wd + "/src/test/resources/data_test/filter/testFilter/expected/expected_testString_02.log")).text
+		println result.length()
+		println expected.length()
 		assertEquals(expected,result);
 	}
 	
@@ -279,7 +280,7 @@ public class TestFilter {
 	 * Check func with value of typeRegx is 'match_log_record' and mapFilterConf['data'] is empty.
 	 * Expected: data cannot return => not create file output.log
 	 */
-	@Test
+   @Test
 	public void testFilter_07() {
 		input_conf.put("start_pos", 1);
 		input_conf.put("start_file_name", "result_testString_04.log");
@@ -403,8 +404,7 @@ public class TestFilter {
 		conf.put("output",output_conf);
 		svc.runLogStat(conf)
 		// get output data of func
-		result = (new File(wd + "/output.log")).text
-		assertTrue(result.length() == 0);
+		assertFalse((new File(wd + "/output.log")).exists())
 	}
 	
 	/**
@@ -427,8 +427,7 @@ public class TestFilter {
 		conf.put("output",output_conf);
 		svc.runLogStat(conf)
 		// get output data of func
-		result = (new File(wd + "/output.log")).text
-		assertTrue(result.length() == 0);
+		assertFalse((new File(wd + "/output.log")).exists())
 	}
 	
 	//===========================Check data input is Map===================================
