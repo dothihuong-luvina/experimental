@@ -67,7 +67,9 @@ public class SocketTest {
 		filter = new HashMap<String, Object>();
 		conf = new HashMap<String, Object>();
 		output_conf.put("type", "file");
-		output_conf.put("destination","src/test/resources/data_test/input/testSocket/output/output.log");
+		def outFile = ["path":"src/test/resources/data_test/input/testSocket/output/output.log"]
+		output_conf.put("config", outFile)
+
 		result = "";
 		// filter data of log
 		filter = [

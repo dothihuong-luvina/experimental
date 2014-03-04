@@ -84,8 +84,9 @@ public class TestFilter {
 		input_conf.put("start_pos", 3);
 		//input_conf.put("asc_by_fname", true);
 		// set output config
-		output_conf.put("type", "file");
-		output_conf.put("destination", wd + "/output.log");
+		output_conf.put("type", "file");		
+		def outFile = ["path": wd + "/output.log"]
+		output_conf.put("config", outFile)
 		try {
 			svc = context.getService(context.getServiceReference(LogStat.class.getName()));
 		} catch (Exception e) {

@@ -64,8 +64,9 @@ public class SyslogTest {
 		output_conf = new HashMap<String, Object>();
 		filter = new HashMap<String, Object>();
 		conf = new HashMap<String, Object>();
-		output_conf.put("type", "file");
-		output_conf.put("destination", wd + "/output.log");
+		output_conf.put("type", "file");		
+		def outFile = ["path":wd + "/output.log]
+		output_conf.put("config", outFile)
 		result = "";
 		expected = "";
 		inputStr = "";

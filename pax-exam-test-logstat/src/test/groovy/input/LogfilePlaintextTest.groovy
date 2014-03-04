@@ -106,8 +106,8 @@ public class LogfilePlaintextTest {
 			input_conf.put("start_pos", 3);
 			input_conf.put("asc_by_fname", true);
 			test_common.cleanData("src/test/resources/data_test/input/testPlainText/output/testPlainTextByLine0.output")
-			output_conf.put("destination", "src/test/resources/data_test/input/testPlainText/output/testPlainTextByLine0.output");
-
+			def outFile = ["path":"src/test/resources/data_test/input/testPlainText/output/testPlainTextByDate0.output"]
+			output_conf.put("config", outFile)
 			conf.put("input",input_conf);
 			conf.put("filter",filter_conf);
 			conf.put("output",output_conf);
@@ -136,8 +136,8 @@ public class LogfilePlaintextTest {
 			input_conf.put("start_pos", 3);
 			input_conf.put("asc_by_fname", true);
 			test_common.cleanData("src/test/resources/data_test/input/testPlainText/output/testPlainTextByLine1.output")
-			output_conf.put("destination", "src/test/resources/data_test/input/testPlainText/output/testPlainTextByLine1.output");
-
+			def outFile = ["path":"src/test/resources/data_test/input/testPlainText/output/testPlainTextByDate1.output"]
+			output_conf.put("config", outFile)
 			conf.put("input",input_conf);
 			conf.put("filter",filter_conf);
 			conf.put("output",output_conf);
@@ -317,8 +317,8 @@ public class LogfilePlaintextTest {
 			input_conf.put("from_date", "2014-02-05");
 			input_conf.put("asc_by_fname", false);
 			test_common.cleanData("src/test/resources/data_test/input/testPlainText/output/testPlainTextByDate1.output")
-			output_conf.put("destination", "src/test/resources/data_test/input/testPlainText/output/testPlainTextByDate1.output");
-
+			def outFile = ["path":"src/test/resources/data_test/input/testPlainText/output/testPlainTextByDate1.output"]
+			output_conf.put("config", outFile)
 			conf.put("input",input_conf);
 			conf.put("filter",filter_conf);
 			conf.put("output",output_conf);
@@ -348,8 +348,8 @@ public class LogfilePlaintextTest {
 			input_conf.put("from_date", "2014-02-05");
 			input_conf.put("asc_by_fname", true);
 			test_common.cleanData("src/test/resources/data_test/input/testPlainText/output/testPlainTextByDate2.output")
-			output_conf.put("destination", "src/test/resources/data_test/input/testPlainText/output/testPlainTextByDate2.output");
-
+			def outFile = ["path":"src/test/resources/data_test/input/testPlainText/output/testPlainTextByDate2.output"]
+			output_conf.put("config", outFile)
 			conf.put("input",input_conf);
 			conf.put("filter",filter_conf);
 			conf.put("output",output_conf);
@@ -377,7 +377,8 @@ public class LogfilePlaintextTest {
 			//input_conf.put("from_date", "2014-02-05");
 			input_conf.put("asc_by_fname", true);
 			test_common.cleanData("src/test/resources/data_test/input/testPlainText/output/testPlainTextByDate3.output")
-			output_conf.put("destination", "src/test/resources/data_test/input/testPlainText/output/testPlainTextByDate3.output");
+			def outFile = ["path":"src/test/resources/data_test/input/testPlainText/output/testPlainTextByDate3.output"]
+			output_conf.put("config", outFile)
 
 			conf.put("input",input_conf);
 			conf.put("filter",filter_conf);
@@ -405,7 +406,9 @@ public class LogfilePlaintextTest {
 			//input_conf.put("from_date", "2014-02-05");
 			//input_conf.put("asc_by_fname", true);
 			test_common.cleanData("src/test/resources/data_test/input/testPlainText/output/testPlainTextByDate4.output")
-			output_conf.put("destination", "src/test/resources/data_test/input/testPlainText/output/testPlainTextByDate4.output");
+			
+			def outFile = ["path":"src/test/resources/data_test/input/testPlainText/output/testPlainTextByDate4.output"]
+			output_conf.put("config", outFile)
 
 			conf.put("input",input_conf);
 			conf.put("filter",filter_conf);

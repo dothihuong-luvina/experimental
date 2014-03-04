@@ -75,7 +75,7 @@ public class EventlogTest {
 
 		//Generate event-log data for test .this command will be create an eventlog in Application catagory ,the
 		//Log type is ERROR OR WARNING and the description of event
-		from_time_generated = new SimpleDateFormat("yyyyMMddHHmmss").format(Calendar.getInstance().getTime());		
+		from_time_generated = new SimpleDateFormat("yyyyMMddHHmmss").format(Calendar.getInstance().getTime());
 		def create_evlog_cmd = 'cmd /c eventcreate /L Application /SO LOGSTAT /ID 1 /T ERROR /D "1-This is an error event of LOGSTAT application" '
 		def create_evlog_cmd2 = 'cmd /c eventcreate /L Application /SO LOGSTAT /ID 2 /T ERROR /D "2-This is another error event of LOGSTAT application"'
 		def create_evlog_cmd3 = 'cmd /c eventcreate /L Application /SO LOGSTAT /ID 3 /T WARNING /D "3-This is a warning event of LOGSTAT application" '
@@ -126,7 +126,8 @@ public class EventlogTest {
 			input_conf.put("event_log_type","Application");
 			input_conf.put("from_time_generated",from_time_generated.toString());
 			test_common.cleanData("src/test/resources/data_test/input/testEventlog/output/testEventlog0.output")
-			output_conf.put("destination", "src/test/resources/data_test/input/testEventlog/output/testEventlog0.output");
+			def outFile = ["path":"src/test/resources/data_test/input/testEventlog/output/testEventlog0.output"]
+			output_conf.put("config", outFile)	
 			conf.put("input",input_conf);
 			conf.put("filter",filter_conf);
 			conf.put("output",output_conf);
@@ -151,7 +152,8 @@ public class EventlogTest {
 	public void testEventlog1() {
 		try{
 			test_common.cleanData("src/test/resources/data_test/input/testEventlog/output/testEventlog1.output")
-			output_conf.put("destination", "src/test/resources/data_test/input/testEventlog/output/testEventlog1.output");
+			def outFile = ["path":"src/test/resources/data_test/input/testEventlog/output/testEventlog1.output"]
+			output_conf.put("config", outFile)	
 			input_conf.put("from_time_generated",from_time_generated.toString());
 			conf.put("input",input_conf);
 			conf.put("filter",filter_conf);
@@ -175,7 +177,8 @@ public class EventlogTest {
 	public void testEventlog2() {
 		try{
 			test_common.cleanData("src/test/resources/data_test/input/testEventlog/output/testEventlog2.output")
-			output_conf.put("destination", "src/test/resources/data_test/input/testEventlog/output/testEventlog2.output");
+			def outFile = ["path":"src/test/resources/data_test/input/testEventlog/output/testEventlog2.output"]
+			output_conf.put("config", outFile)
 			conf.put("input",input_conf);
 			conf.put("filter",filter_conf);
 			conf.put("output",output_conf);
@@ -199,7 +202,8 @@ public class EventlogTest {
 	public void testEventlog3() {
 		try{
 			test_common.cleanData("src/test/resources/data_test/input/testEventlog/output/testEventlog3.output")
-			output_conf.put("destination", "src/test/resources/data_test/input/testEventlog/output/testEventlog3.output");
+			def outFile = ["path":"src/test/resources/data_test/input/testEventlog/output/testEventlog3.output"]
+			output_conf.put("config", outFile)	
 			input_conf.put("from_time_generated",from_time_generated.toString());
 			filter_conf = [
 				filter_type :"",
@@ -239,14 +243,15 @@ public class EventlogTest {
 	public void testEventlog4() {
 		try{
 			test_common.cleanData("src/test/resources/data_test/input/testEventlog/output/testEventlog4.output")
-			output_conf.put("destination", "src/test/resources/data_test/input/testEventlog/output/testEventlog4.output");
+			def outFile = ["path":"src/test/resources/data_test/input/testEventlog/output/testEventlog4.output"]
+			output_conf.put("config", outFile)	
 			input_conf.put("from_time_generated",from_time_generated.toString());
 			def create_evlog_cmd = 'cmd /c eventcreate /L SYSTEM /SO LOGSTAT2 /ID 3 /T ERROR /D "1-This is a ERROR event in System log file" '
 			def proc = create_evlog_cmd.execute();
 			proc.waitFor();
 			from_time_generated = new SimpleDateFormat("yyyyMMddHHmmss").format(Calendar.getInstance().getTime());
-			input_conf.put("event_log_type","System");		
-			input_conf.put("from_time_generated",from_time_generated.toString());			
+			input_conf.put("event_log_type","System");
+			input_conf.put("from_time_generated",from_time_generated.toString());
 			filter_conf = [
 				filter_type :"",
 				filter_conf :[
