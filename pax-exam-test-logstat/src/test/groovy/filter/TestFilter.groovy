@@ -20,6 +20,7 @@ import org.osgi.service.cm.ManagedService;
 import service.LogStat;
 import org.jruby.embed.InvokeFailedException;
 import org.jruby.embed.ScriptingContainer;
+import test.groovy.common.TestUTCommon;
 
 @RunWith(PaxExam.class)
 @ExamReactorStrategy(PerClass.class)
@@ -57,7 +58,7 @@ public class TestFilter {
 	String result;
 	String expected;
 	String logs_test_dir;
-	
+	TestUTCommon test_common = new TestUTCommon();	
 	@Before
 	public void prepare() {
 		input_conf = new HashMap<String, Object>();
@@ -85,8 +86,6 @@ public class TestFilter {
 		//input_conf.put("asc_by_fname", true);
 		// set output config
 		output_conf.put("type", "file");		
-		def outFile = ["path": wd + "/output.log"]
-		output_conf.put("config", outFile)
 		try {
 			svc = context.getService(context.getServiceReference(LogStat.class.getName()));
 		} catch (Exception e) {
@@ -96,7 +95,7 @@ public class TestFilter {
 
 	@After
 	public void finish() {
-		new File(wd + "/output.log").delete();
+		//new File(wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_01.log").delete();
 	}
 	
 	//===========================Check data input is String===============================
@@ -112,9 +111,12 @@ public class TestFilter {
 		conf.put("input",input_conf);
 		conf.put("filter",filter);
 		conf.put("output",output_conf);
+		test_common.cleanData("src/test/resources/data_test/input/testFilter/output/testFilter_01.output")		
+		def outFile = ["path": wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_01.log"]
+		output_conf.put("config", outFile)
 		svc.runLogStat(conf)
 		// get output data of func
-		result = (new File(wd + "/output.log")).text
+		result = (new File(wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_01.log")).text
 		// get data expected to comparse
 		expected = (new File(wd + "/src/test/resources/data_test/filter/testFilter/expected/expected_testString_01.log")).text
     }
@@ -127,8 +129,11 @@ public class TestFilter {
 	@Test
 	public void testFilter_02() {
 		input_conf.put("start_file_name", "result_testString_02.log");
-
+		def outFile = ["path": wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_02.log"]
+		output_conf.put("config", outFile)
 		// filter data of log
+		test_common.cleanData("src/test/resources/data_test/input/testFilter/output/testFilter_02.output")
+		
 		filter = new HashMap<String, Object>();
 		filter = [
 			"filter_type" : "match_field",
@@ -142,11 +147,9 @@ public class TestFilter {
 		conf.put("output",output_conf);
 		svc.runLogStat(conf)
 		// get output data of func
-		result = (new File(wd + "/output.log")).text
+		result = (new File(wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_02.log")).text
 		// get data expected to comparse
 		expected = (new File(wd + "/src/test/resources/data_test/filter/testFilter/expected/expected_testString_02.log")).text
-		println result.length()
-		println expected.length()
 		assertEquals(expected,result);
 	}
 	
@@ -159,6 +162,9 @@ public class TestFilter {
 	public void testFilter_03() {
 		input_conf.put("start_pos", 1);
 		input_conf.put("start_file_name", "result_testString_03.log");
+		def outFile = ["path": wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_03.log"]
+		output_conf.put("config", outFile)
+		test_common.cleanData("src/test/resources/data_test/input/testFilter/output/testFilter_03.output")
 		
 		// filter data of log
 		filter = new HashMap<String, Object>();
@@ -178,7 +184,7 @@ public class TestFilter {
 		conf.put("output",output_conf);
 		svc.runLogStat(conf)
 		// get output data of func
-		result = (new File(wd + "/output.log")).text
+		result = (new File(wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_03.log")).text
 		// get data expected to comparse
 		expected = (new File(wd + "/src/test/resources/data_test/filter/testFilter/expected/expected_testString_03.log")).text
 		assertEquals(expected,result);
@@ -193,6 +199,9 @@ public class TestFilter {
 	public void testFilter_04() {
 		input_conf.put("start_pos", 1);
 		input_conf.put("start_file_name", "result_testString_04.log");
+		def outFile = ["path": wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_04.log"]
+		output_conf.put("config", outFile)
+		test_common.cleanData("src/test/resources/data_test/input/testFilter/output/testFilter_04.output")
 		
 		// filter data of log
 		filter = new HashMap<String, Object>();
@@ -212,7 +221,7 @@ public class TestFilter {
 		conf.put("output",output_conf);
 		svc.runLogStat(conf)
 		// get output data of func
-		result = (new File(wd + "/output.log")).text
+		result = (new File(wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_04.log")).text
 		// get data expected to comparse
 		expected = (new File(wd + "/src/test/resources/data_test/filter/testFilter/expected/expected_testString_04.log")).text
 		assertEquals(expected,result);
@@ -226,6 +235,9 @@ public class TestFilter {
 	public void testFilter_05() {
 		input_conf.put("start_pos", 1);
 		input_conf.put("start_file_name", "result_testString_04.log");
+		def outFile = ["path": wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_05.log"]
+		output_conf.put("config", outFile)
+		test_common.cleanData("src/test/resources/data_test/input/testFilter/output/testFilter_05.output")
 		
 		// filter data of log
 		filter = new HashMap<String, Object>();
@@ -244,7 +256,7 @@ public class TestFilter {
 		conf.put("filter",filter);
 		conf.put("output",output_conf);
 		svc.runLogStat(conf)
-		assertFalse((new File(wd + "/output.log")).exists())
+		assertFalse((new File(wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_05.log")).exists())
 	}
 	
 	/**
@@ -255,6 +267,9 @@ public class TestFilter {
 	public void testFilter_06() {
 		input_conf.put("start_pos", 1);
 		input_conf.put("start_file_name", "result_testString_04.log");
+		def outFile = ["path": wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_06.log"]
+		output_conf.put("config", outFile)
+		test_common.cleanData("src/test/resources/data_test/input/testFilter/output/testFilter_06.output")
 		
 		// filter data of log
 		filter = new HashMap<String, Object>();
@@ -273,7 +288,7 @@ public class TestFilter {
 		conf.put("filter",filter);
 		conf.put("output",output_conf);
 		svc.runLogStat(conf)
-		assertFalse((new File(wd + "/output.log")).exists())
+		assertFalse((new File(wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_06.log")).exists())
 	}
 	
 	/**
@@ -284,6 +299,9 @@ public class TestFilter {
 	public void testFilter_07() {
 		input_conf.put("start_pos", 1);
 		input_conf.put("start_file_name", "result_testString_04.log");
+		def outFile = ["path": wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_07.log"]
+		output_conf.put("config", outFile)
+		test_common.cleanData("src/test/resources/data_test/input/testFilter/output/testFilter_07.output")
 		
 		// filter data of log
 		filter = new HashMap<String, Object>();
@@ -298,7 +316,7 @@ public class TestFilter {
 		conf.put("filter",filter);
 		conf.put("output",output_conf);
 		svc.runLogStat(conf)
-		assertFalse((new File(wd + "/output.log")).exists())
+		assertFalse((new File(wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_07.log")).exists())
 	}
 	
 	/**
@@ -309,6 +327,9 @@ public class TestFilter {
 	public void testFilter_08() {
 		input_conf.put("start_pos", 1);
 		input_conf.put("start_file_name", "result_testString_04.log");
+		def outFile = ["path": wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_08.log"]
+		output_conf.put("config", outFile)
+		test_common.cleanData("src/test/resources/data_test/input/testFilter/output/testFilter_08.output")
 		
 		// filter data of log
 		filter = new HashMap<String, Object>();
@@ -323,7 +344,7 @@ public class TestFilter {
 		conf.put("filter",filter);
 		conf.put("output",output_conf);
 		svc.runLogStat(conf)
-		assertFalse((new File(wd + "/output.log")).exists())
+		assertFalse((new File(wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_08.log")).exists())
 	}
 	
 	/**
@@ -334,6 +355,9 @@ public class TestFilter {
 	public void testFilter_09() {
 		input_conf.put("start_pos", 1);
 		input_conf.put("start_file_name", "result_testString_04.log");
+		def outFile = ["path": wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_09.log"]
+		output_conf.put("config", outFile)
+		test_common.cleanData("src/test/resources/data_test/input/testFilter/output/testFilter_09.output")
 		
 		// filter data of log
 		filter = new HashMap<String, Object>();
@@ -352,7 +376,7 @@ public class TestFilter {
 		conf.put("filter",filter);
 		conf.put("output",output_conf);
 		svc.runLogStat(conf)
-		assertFalse((new File(wd + "/output.log")).exists())
+		assertFalse((new File(wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_09.log")).exists())
 	}
 	
 	/**
@@ -363,6 +387,9 @@ public class TestFilter {
 	public void testFilter_10() {
 		input_conf.put("start_pos", 1);
 		input_conf.put("start_file_name", "result_testString_04.log");
+		def outFile = ["path": wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_10.log"]
+		output_conf.put("config", outFile)
+		test_common.cleanData("src/test/resources/data_test/input/testFilter/output/testFilter_10.output")
 		
 		// filter data of log
 		filter = new HashMap<String, Object>();
@@ -381,7 +408,7 @@ public class TestFilter {
 		conf.put("filter",filter);
 		conf.put("output",output_conf);
 		svc.runLogStat(conf)
-		assertFalse((new File(wd + "/output.log")).exists())
+		assertFalse((new File(wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_10.log")).exists())
 	}
 	
 	/**
@@ -392,7 +419,9 @@ public class TestFilter {
 	public void testFilter_11() {
 		input_conf.put("start_pos", 1);
 		input_conf.put("start_file_name", "result_testString_04.log");
-		
+		def outFile = ["path": wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_11.log"]
+		output_conf.put("config", outFile)
+		test_common.cleanData("src/test/resources/data_test/input/testFilter/output/testFilter_11.output")		
 		// filter data of log
 		filter = new HashMap<String, Object>();
 		filter = [
@@ -404,7 +433,7 @@ public class TestFilter {
 		conf.put("output",output_conf);
 		svc.runLogStat(conf)
 		// get output data of func
-		assertFalse((new File(wd + "/output.log")).exists())
+		assertFalse((new File(wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_11.log")).exists())
 	}
 	
 	/**
@@ -415,6 +444,9 @@ public class TestFilter {
 	public void testFilter_12() {
 		input_conf.put("start_pos", 1);
 		input_conf.put("start_file_name", "result_testString_04.log");
+		def outFile = ["path": wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_12.log"]
+		output_conf.put("config", outFile)
+		test_common.cleanData("src/test/resources/data_test/input/testFilter/output/testFilter_12.output")
 		
 		// filter data of log
 		filter = new HashMap<String, Object>();
@@ -427,7 +459,7 @@ public class TestFilter {
 		conf.put("output",output_conf);
 		svc.runLogStat(conf)
 		// get output data of func
-		assertFalse((new File(wd + "/output.log")).exists())
+		assertFalse((new File(wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_12.log")).exists())
 	}
 	
 	//===========================Check data input is Map===================================
@@ -440,6 +472,9 @@ public class TestFilter {
 	public void testFilter_13() {
 		input_conf.put("file_format", "csv");
 		input_conf.put("start_file_name", "result_testMap_01.csv");
+		def outFile = ["path": wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_13.log"]
+		output_conf.put("config", outFile)
+		test_common.cleanData("src/test/resources/data_test/input/testFilter/output/testFilter_13.output")
 		
 		// filter data of log
 		filter = [
@@ -462,7 +497,7 @@ public class TestFilter {
 		conf.put("output",output_conf);
 		svc.runLogStat(conf)
 		// get output data of func
-		result = (new File(wd + "/output.log")).text
+		result = (new File(wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_13.log")).text
 		// get data expected to comparse
 		expected = (new File(wd + "/src/test/resources/data_test/filter/testFilter/expected/expected_testMap_01.log")).text
 		assertEquals(expected,result);
@@ -478,6 +513,9 @@ public class TestFilter {
 	public void testFilter_14() {
 		input_conf.put("file_format", "csv");
 		input_conf.put("start_file_name", "result_testMap_02.csv");
+		def outFile = ["path": wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_14.log"]
+		output_conf.put("config", outFile)
+		test_common.cleanData("src/test/resources/data_test/input/testFilter/output/testFilter_14.output")
 		
 		// filter data of log
 		filter = [
@@ -494,7 +532,7 @@ public class TestFilter {
 		conf.put("output",output_conf);
 		svc.runLogStat(conf)
 		// get output data of func
-		result = (new File(wd + "/output.log")).text
+		result = (new File(wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_14.log")).text
 		// get data expected to comparse
 		expected = (new File(wd + "/src/test/resources/data_test/filter/testFilter/expected/expected_testMap_02.log")).text
 		assertEquals(expected,result);
@@ -510,6 +548,9 @@ public class TestFilter {
 	public void testFilter_15() {
 		input_conf.put("file_format", "csv");
 		input_conf.put("start_file_name", "result_testMap_02.csv");
+		def outFile = ["path": wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_15.log"]
+		output_conf.put("config", outFile)
+		test_common.cleanData("src/test/resources/data_test/input/testFilter/output/testFilter_15.output")
 		
 		// filter data of log
 		filter = [
@@ -527,7 +568,7 @@ public class TestFilter {
 		conf.put("output",output_conf);
 		svc.runLogStat(conf)
 		// get output data of func
-		result = (new File(wd + "/output.log")).text
+		result = (new File(wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_15.log")).text
 		// get data expected to comparse
 		expected = (new File(wd + "/src/test/resources/data_test/filter/testFilter/expected/expected_testMap_02.log")).text
 		assertEquals(expected,result);
@@ -543,6 +584,9 @@ public class TestFilter {
 	public void testFilter_16() {
 		input_conf.put("file_format", "csv");
 		input_conf.put("start_file_name", "result_testMap_02.csv");
+		def outFile = ["path": wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_16.log"]
+		output_conf.put("config", outFile)
+		test_common.cleanData("src/test/resources/data_test/input/testFilter/output/testFilter_16.output")
 		
 		// filter data of log
 		filter = [
@@ -560,7 +604,7 @@ public class TestFilter {
 		conf.put("output",output_conf);
 		svc.runLogStat(conf)
 		// get output data of func
-		result = (new File(wd + "/output.log")).text
+		result = (new File(wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_16.log")).text
 		// get data expected to comparse
 		expected = (new File(wd + "/src/test/resources/data_test/filter/testFilter/expected/expected_testMap_02.log")).text
 		assertEquals(expected,result);
@@ -576,6 +620,9 @@ public class TestFilter {
 	public void testFilter_17() {
 		input_conf.put("file_format", "csv");
 		input_conf.put("start_file_name", "result_testMap_03.csv");
+		def outFile = ["path": wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_17.log"]
+		output_conf.put("config", outFile)
+		test_common.cleanData("src/test/resources/data_test/input/testFilter/output/testFilter_17.output")
 		
 		// filter data of log
 		filter = [
@@ -593,7 +640,7 @@ public class TestFilter {
 		conf.put("output",output_conf);
 		svc.runLogStat(conf)
 		// get output data of func
-		result = (new File(wd + "/output.log")).text
+		result = (new File(wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_17.log")).text
 		// get data expected to comparse
 		expected = (new File(wd + "/src/test/resources/data_test/filter/testFilter/expected/expected_testMap_03.log")).text
 		assertEquals(expected,result);
@@ -608,6 +655,9 @@ public class TestFilter {
 	public void testFilter_18() {
 		input_conf.put("file_format", "csv");
 		input_conf.put("start_file_name", "result_testMap_03.csv");
+		def outFile = ["path": wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_18.log"]
+		output_conf.put("config", outFile)
+		test_common.cleanData("src/test/resources/data_test/input/testFilter/output/testFilter_18.output")
 		
 		// filter data of log
 		filter = [
@@ -629,7 +679,7 @@ public class TestFilter {
 		conf.put("filter",filter);
 		conf.put("output",output_conf);
 		svc.runLogStat(conf)
-		assertFalse((new File(wd + "/output.log")).exists())
+		assertFalse((new File(wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_18.log")).exists())
 	}
 	
 	/**
@@ -642,6 +692,9 @@ public class TestFilter {
 	public void testFilter_19() {
 		input_conf.put("file_format", "csv");
 		input_conf.put("start_file_name", "result_testMap_03.csv");
+		def outFile = ["path": wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_19.log"]
+		output_conf.put("config", outFile)
+		test_common.cleanData("src/test/resources/data_test/input/testFilter/output/testFilter_19.output")
 		
 		// filter data of log
 		filter = [
@@ -660,7 +713,7 @@ public class TestFilter {
 		conf.put("output",output_conf);
 		svc.runLogStat(conf)
 		// get output data of func
-		result = (new File(wd + "/output.log")).text
+		result = (new File(wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_19.log")).text
 		// get data expected to comparse
 		expected = (new File(wd + "/src/test/resources/data_test/filter/testFilter/expected/expected_testMap_03.log")).text
 		assertEquals(expected,result);
@@ -676,6 +729,9 @@ public class TestFilter {
 	public void testFilter_20() {
 		input_conf.put("file_format", "csv");
 		input_conf.put("start_file_name", "result_testMap_03.csv");
+		def outFile = ["path": wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_20.log"]
+		output_conf.put("config", outFile)
+		test_common.cleanData("src/test/resources/data_test/input/testFilter/output/testFilter_20.output")
 		
 		// filter data of log
 		filter = [
@@ -694,7 +750,7 @@ public class TestFilter {
 		conf.put("output",output_conf);
 		svc.runLogStat(conf)
 		// get output data of func
-		result = (new File(wd + "/output.log")).text
+		result = (new File(wd + "/src/test/resources/data_test/filter/testFilter/output/testFilter_20.log")).text
 		// get data expected to comparse
 		expected = (new File(wd + "/src/test/resources/data_test/filter/testFilter/expected/expected_testMap_03.log")).text
 		assertEquals(expected,result);

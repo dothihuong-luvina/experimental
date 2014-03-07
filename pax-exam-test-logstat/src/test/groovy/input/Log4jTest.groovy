@@ -57,7 +57,7 @@ public class Log4jTest {
 	TestUTCommon test_common = new TestUTCommon();
 	/**
 	 * Note :  Run this project src\test\resources\data_test\input\testLog4j\Log4jEx (A log4j server to send
-	 * logs to logstat via socket) before testing   
+	 * logs to logstat via socket - remember to add log4j.jar to build Log4jEx path) before testing   
 	 */
 	
 	@Before
@@ -67,8 +67,6 @@ public class Log4jTest {
 		filter = new HashMap<String, Object>();
 		conf = new HashMap<String, Object>();
 		output_conf.put("type", "file");		
-		def outFile = ["path":"src/test/resources/data_test/input/testLog4j/output/output.log"]
-		output_conf.put("config", outFile)
 		result = "";
 		// filter data of log
 		filter = [
@@ -95,7 +93,6 @@ public class Log4jTest {
 
 	@After
 	public void finish() {
-		test_common.cleanData("")
 	}
 
 	/**
@@ -103,16 +100,19 @@ public class Log4jTest {
 	 * Func will be get default of timeout for run.
 	 * Expected: return data contains message of log level err. 
 	 */
-	@Test
+   @Test
 	public void testLog4j_01() {
 		input_conf.put("port", 2808);
-		input_conf.put("timeout", 15);
 		conf.put("input",input_conf);
 		conf.put("filter",filter);
 		conf.put("output",output_conf);
+		def outFile = ["path":"src/test/resources/data_test/input/testLog4j/output/testLog4j_01.log"]
+		output_conf.put("config", outFile)
+		test_common.cleanData("src/test/resources/data_test/input/testLog4j/output/testLog4j_01.log")		
 		svc.runLogStat(conf);
 		// result data
-		result = readFileOutput("src/test/resources/data_test/input/testLog4j/output/output.log");
+		result = readFileOutput("src/test/resources/data_test/input/testLog4j/output/testLog4j_01.log");
+		assertNotNull(result)
 		assertTrue(result.contains('"message"=>"Log4j error message!!"'))
 		//assertTrue(result.contains('"message"=>"Log4j debug message!!"'))
 		Thread.sleep(3000)
@@ -122,18 +122,20 @@ public class Log4jTest {
 	 * Check output with input config contains two variable is port and timeout.
 	 * Expected: return data contains message of log level err.
 	 */
-	@Test
+	//@Test
 	public void testLog4j_02() {
 		input_conf.put("port", 2808);
 		input_conf.put("timeout", 15);
-
+		def outFile = ["path":"src/test/resources/data_test/input/testLog4j/output/testLog4j_02.log"]
+		output_conf.put("config", outFile)
 		conf.put("input",input_conf);
 		conf.put("filter",filter);
 		conf.put("output",output_conf);
-
+		test_common.cleanData("src/test/resources/data_test/input/testLog4j/output/testLog4j_02.log")		
 		svc.runLogStat(conf)
 		// result data
-		result = readFileOutput("src/test/resources/data_test/input/testLog4j/output/output.log");
+		result = readFileOutput("src/test/resources/data_test/input/testLog4j/output/testLog4j_02.log");
+		assertNotNull(result)
 		assertTrue(result.contains('"message"=>"Log4j error message!!"'))
 		Thread.sleep(3000)
 	}
@@ -142,18 +144,21 @@ public class Log4jTest {
 	 * Check output with input config contains two variable is port and host
 	 * Expected: return data contains message of log level err.
 	 */
-	@Test
+	//@Test
 	public void testLog4j_03() {
 		input_conf.put("port", 2808);
 		input_conf.put("host", "localhost");
 		input_conf.put("timeout", 15);		
+		def outFile = ["path":"src/test/resources/data_test/input/testLog4j/output/testLog4j_03.log"]
+		output_conf.put("config", outFile)
 		conf.put("input",input_conf);
 		conf.put("filter",filter);
 		conf.put("output",output_conf);
-
+		test_common.cleanData("src/test/resources/data_test/input/testLog4j/output/testLog4j_03.log")		
 		svc.runLogStat(conf)
 		// result data
-		result = readFileOutput("src/test/resources/data_test/input/testLog4j/output/output.log");
+		result = readFileOutput("src/test/resources/data_test/input/testLog4j/output/testLog4j_03.log");
+		assertNotNull(result)
 		assertTrue(result.contains('"message"=>"Log4j error message!!"'))
 		Thread.sleep(3000)
 	}
@@ -162,19 +167,21 @@ public class Log4jTest {
 	 * Check output with input config contains all of variable is port, timeout and host
 	 * Expected: return data contains message of log level err.
 	 */
-	@Test
+	//@Test
 	public void testLog4j_04() {
 		input_conf.put("port", 2808);
 		input_conf.put("timeout", 15);
 		input_conf.put("host", "localhost");
-
+		def outFile = ["path":"src/test/resources/data_test/input/testLog4j/output/testLog4j_04.log"]
+		output_conf.put("config", outFile)
 		conf.put("input",input_conf);
 		conf.put("filter",filter);
 		conf.put("output",output_conf);
-
+		test_common.cleanData("src/test/resources/data_test/input/testLog4j/output/testLog4j_04.log")		
 		svc.runLogStat(conf)
 		// result data
-		result = readFileOutput("src/test/resources/data_test/input/testLog4j/output/output.log");
+		result = readFileOutput("src/test/resources/data_test/input/testLog4j/output/testLog4j_04.log");
+		assertNotNull(result)
 		assertTrue(result.contains('"message"=>"Log4j error message!!"'))
 		Thread.sleep(3000)
 	}
@@ -187,12 +194,14 @@ public class Log4jTest {
 	public void testLog4j_05() {
 		input_conf.put("port", 66666);
 		input_conf.put("timeout", 15);
-
+		def outFile = ["path":"src/test/resources/data_test/input/testLog4j/output/testLog4j_05.log"]
+		output_conf.put("config", outFile)
+		test_common.cleanData("src/test/resources/data_test/input/testLog4j/output/testLog4j_05.log")		
 		conf.put("input",input_conf);
 		conf.put("filter",filter);
 		conf.put("output",output_conf);
 		svc.runLogStat(conf)
-		assertFalse((new File("src/test/resources/data_test/input/testLog4j/output/output.log")).exists())
+		assertFalse((new File("src/test/resources/data_test/input/testLog4j/output/testLog4j_05.log")).exists())
 		Thread.sleep(3000)
 	}
 
@@ -200,36 +209,39 @@ public class Log4jTest {
 	 * Check output with input config contains port is null
 	 * Expected:  Generate error message : "[Logstat]: Port is required" 
 	 */
-	@Test
+	//@Test
 	public void testLog4j_06() {
 		input_conf.put("port", null);
 		input_conf.put("timeout", 15);
-
+		def outFile = ["path":"src/test/resources/data_test/input/testLog4j/output/testLog4j_06.log"]
+		output_conf.put("config", outFile)
 		conf.put("input",input_conf);
 		conf.put("filter",filter);
 		conf.put("output",output_conf);
-
+		test_common.cleanData("src/test/resources/data_test/input/testLog4j/output/testLog4j_06.log")		
 		svc.runLogStat(conf)
-		assertFalse((new File("src/test/resources/data_test/input/testLog4j/output/output.log")).exists())
+		assertFalse((new File("src/test/resources/data_test/input/testLog4j/output/testLog4j_06.log")).exists())
 		Thread.sleep(3000)
 	}
 
 	/**
-	 * Check output with input config contains two variable is port, host. Value of host does not exist.
-	 * Expected: return data is null.
+	 * Check output with input config contains two variable is port, host. Value of host does not exist
+	 * host will be set default to localhost.
+	 * Expected: return data from localhost
 	 */
-	@Test
+	//@Test
 	public void testLog4j_07() {
 		input_conf.put("port", 2808);
-		input_conf.put("port", 15);
-		input_conf.put("host", "localhost");
-
+		input_conf.put("timeout", 15);
+		input_conf.put("host", "");
+		def outFile = ["path":"src/test/resources/data_test/input/testLog4j/output/testLog4j_07.log"]
+		output_conf.put("config", outFile)
 		conf.put("input",input_conf);
 		conf.put("filter",filter);
 		conf.put("output",output_conf);
-
+		test_common.cleanData("src/test/resources/data_test/input/testLog4j/output/testLog4j_07.log")		
 		svc.runLogStat(conf)
-		assertFalse((new File("src/test/resources/data_test/input/testLog4j/output/output.log")).exists())
+		assertTrue((new File("src/test/resources/data_test/input/testLog4j/output/testLog4j_07.log")).exists())
 		Thread.sleep(3000)
 	}
 
@@ -237,19 +249,21 @@ public class Log4jTest {
 	 * Check output with value of host is null.
 	 * Expected: return data contains message of log level err.
 	 */
-	@Test
+	//@Test
 	public void testLog4j_08() {
 		input_conf.put("port", 2808);
 		input_conf.put("timeout", 15);
 		input_conf.put("host", null);
-
+		def outFile = ["path":"src/test/resources/data_test/input/testLog4j/output/testLog4j_08.log"]
+		output_conf.put("config", outFile)
 		conf.put("input",input_conf);
 		conf.put("filter",filter);
 		conf.put("output",output_conf);
-
+		test_common.cleanData("src/test/resources/data_test/input/testLog4j/output/testLog4j_08.log")		
 		svc.runLogStat(conf)
 		// result data
-		result = readFileOutput("src/test/resources/data_test/input/testLog4j/output/output.log");
+		result = readFileOutput("src/test/resources/data_test/input/testLog4j/output/testLog4j_08.log");
+		assertNotNull(result)
 		assertTrue(result.contains('"message"=>"Log4j error message!!"'))
 		Thread.sleep(3000)
 	}
@@ -273,9 +287,8 @@ public class Log4jTest {
 				}
 			}
 			return output;
-		} catch (IOException ex) {
-			ex.printStackTrace();
-			throw ex;
+		} catch (Exception ex) {
+			System.out.println("No data output !");
 		}
 	}
 }

@@ -1,7 +1,7 @@
 import javax.inject.Inject;
 import static org.junit.Assert.*;
 import static org.ops4j.pax.exam.CoreOptions.*;
- 
+
 import org.junit.Test;
 import org.junit.After;
 import org.junit.Before;
@@ -22,28 +22,30 @@ import org.jruby.embed.ScriptingContainer;
 @RunWith(PaxExam.class)
 @ExamReactorStrategy(PerClass.class)
 public class TestOutput {
-    public TestOutput() {}
+	public TestOutput() {
+
+	}
 
 	@Inject
 	private org.osgi.framework.BundleContext context;
 	String wd = System.getProperty("user.dir");
-    @Configuration
-    public Option[] config() {
-        return options(
-			cleanCaches(true),
-			frameworkStartLevel(6),
-			// felix log level
-			systemProperty("felix.log.level").value("4"), // 4 = DEBUG
-			// setup properties for fileinstall bundle.
-			systemProperty("felix.home").value(wd),
-			// Pax-exam make this test code into OSGi bundle at runtime, so 
-			// we need "groovy-all" bundle to use this groovy test code.
-            mavenBundle("org.codehaus.groovy", "groovy-all", "2.2.1").startLevel(2),
-			mavenBundle("org.jruby", "jruby-complete", "1.7.10").startLevel(2),
-			mavenBundle("org.wiperdog", "logstat", "1.0").startLevel(3),
-            junitBundles()
+	@Configuration
+	public Option[] config() {
+		return options(
+		cleanCaches(true),
+		frameworkStartLevel(6),
+		// felix log level
+		systemProperty("felix.log.level").value("4"), // 4 = DEBUG
+		// setup properties for fileinstall bundle.
+		systemProperty("felix.home").value(wd),
+		// Pax-exam make this test code into OSGi bundle at runtime, so
+		// we need "groovy-all" bundle to use this groovy test code.
+		mavenBundle("org.codehaus.groovy", "groovy-all", "2.2.1").startLevel(2),
+		mavenBundle("org.jruby", "jruby-complete", "1.7.10").startLevel(2),
+		mavenBundle("org.wiperdog", "logstat", "1.0").startLevel(3),
+		junitBundles()
 		);
-    }
+	}
 
 	private LogStat svc;
 	HashMap<String , Object> input_conf;
@@ -56,9 +58,9 @@ public class TestOutput {
 	String result;
 	String expected;
 	String logs_test_dir;
-	
+
 	@Before
-	public void prepare() {		
+	public void prepare() {
 		input_conf = new HashMap<String, Object>();
 		output_conf = new HashMap<String, Object>();
 		filter = new HashMap<String, Object>();
@@ -82,11 +84,12 @@ public class TestOutput {
 		input_conf.put("start_pos", 3);
 		//input_conf.put("asc_by_fname", true);
 		// set output config
+		output_conf.put("type", "file");
 		configOutput = [
 			"path": wd + "/output.log"
 		]
-		output_conf.put("type", "file");
 		output_conf.put("config", configOutput);
+		new File(wd + "/output.log").delete();
 		try {
 			svc = context.getService(context.getServiceReference(LogStat.class.getName()));
 		} catch (Exception e) {
@@ -96,9 +99,9 @@ public class TestOutput {
 
 	@After
 	public void finish() {
-		new File(wd + "/output.log").delete();
+		//new File(wd + "/output.log").delete();
 	}
-	
+
 	//===========================Check output to File===============================
 	/**
 	 * Check func with all of variable: data, output_conf is true.
@@ -106,8 +109,8 @@ public class TestOutput {
 	 * Value of output_conf['config']['path'] to path exist.
 	 * Expected: write data to file successfully.
 	 */
-    @Test
-    public void testOutput_01() {
+	@Test
+	public void testOutput_01() {
 		input_conf.put("start_file_name", "result_testString_01.log");
 
 		conf.put("input",input_conf);
@@ -118,8 +121,10 @@ public class TestOutput {
 		result = (new File(wd + "/output.log")).text
 		// get data expected to comparse
 		expected = (new File(wd + "/src/test/resources/data_test/output/expected/expected_testString_01.log")).text
-    }
-	
+		assertNotNull(result)
+		assertEquals(expected, result)
+	}
+
 	/**
 	 * Check func with all of variable: data, output_conf is true.
 	 * Value of output_conf['type'] is 'file'.
@@ -129,20 +134,20 @@ public class TestOutput {
 	@Test
 	public void testOutput_02() {
 		input_conf.put("start_file_name", "result_testString_01.log");
-		
+
 		configOutput = [
 			"path": "stdout"
 		]
 		output_conf.put("type", "file");
 		output_conf.put("config", configOutput);
-		
+
 		conf.put("input",input_conf);
 		conf.put("filter",filter);
 		conf.put("output",output_conf);
 		svc.runLogStat(conf)
 		assertFalse((new File(wd + "/output.log")).exists())
 	}
-	
+
 	/**
 	 * Check func with all of variable: data, output_conf is true.
 	 * Value of output_conf['type'] is 'file'.
@@ -152,20 +157,20 @@ public class TestOutput {
 	@Test
 	public void testOutput_03() {
 		input_conf.put("start_file_name", "result_testString_01.log");
-		
+
 		configOutput = [
 			"path": ""
 		]
 		output_conf.put("type", "file");
 		output_conf.put("config", configOutput);
-		
+
 		conf.put("input",input_conf);
 		conf.put("filter",filter);
 		conf.put("output",output_conf);
 		svc.runLogStat(conf)
 		assertFalse((new File(wd + "/output.log")).exists())
 	}
-	
+
 	/**
 	 * Check func with all of variable: data, output_conf is true.
 	 * Value of output_conf['type'] is 'file'.
@@ -175,20 +180,20 @@ public class TestOutput {
 	@Test
 	public void testOutput_04() {
 		input_conf.put("start_file_name", "result_testString_01.log");
-		
+
 		configOutput = [
 			"path": null
 		]
 		output_conf.put("type", "file");
 		output_conf.put("config", configOutput);
-		
+
 		conf.put("input",input_conf);
 		conf.put("filter",filter);
 		conf.put("output",output_conf);
 		svc.runLogStat(conf)
 		assertFalse((new File(wd + "/output.log")).exists())
 	}
-	
+
 	/**
 	 * Check func with all of variable: data, output_conf is true.
 	 * Value of output_conf['type'] is 'file'.
@@ -198,20 +203,20 @@ public class TestOutput {
 	@Test
 	public void testOutput_05() {
 		input_conf.put("start_file_name", "result_testString_01.log");
-		
+
 		configOutput = [
 			"path": "/user/path/not/exist/output.log"
 		]
 		output_conf.put("type", "file");
 		output_conf.put("config", configOutput);
-		
+
 		conf.put("input",input_conf);
 		conf.put("filter",filter);
 		conf.put("output",output_conf);
 		svc.runLogStat(conf)
 		assertFalse((new File(wd + "/output.log")).exists())
 	}
-	
+
 	/**
 	 * Check func with all of variable: data, output_conf is true.
 	 * Value of output_conf['type'] is 'file'.
@@ -221,7 +226,7 @@ public class TestOutput {
 	@Test
 	public void testOutput_06() {
 		input_conf.put("start_file_name", "result_testString_01.log");
-		
+
 		output_conf.put("type", "file");
 		output_conf.remove("config")
 		conf.put("input",input_conf);
@@ -230,7 +235,7 @@ public class TestOutput {
 		svc.runLogStat(conf)
 		assertFalse((new File(wd + "/output.log")).exists())
 	}
-	
+
 	/**
 	 * Check func with all of variable: data, output_conf is true.
 	 * Value of output_conf['type'] is 'file'.
@@ -240,18 +245,18 @@ public class TestOutput {
 	@Test
 	public void testOutput_07() {
 		input_conf.put("start_file_name", "result_testString_01.log");
-		
+
 		configOutput = []
 		output_conf.put("type", "file");
 		output_conf.put("config", configOutput);
-		
+
 		conf.put("input",input_conf);
 		conf.put("filter",filter);
 		conf.put("output",output_conf);
 		svc.runLogStat(conf)
 		assertFalse((new File(wd + "/output.log")).exists())
 	}
-	
+
 	//===========================Check output of Job================================
 	/**
 	 * Check func with all of variable: data, output_conf is true.
@@ -259,15 +264,19 @@ public class TestOutput {
 	 * Expected: return data.
 	 */
 	@Test
-	public void testOutput_8() {
+	public void testOutput_08() {
 		input_conf.put("start_file_name", "result_testString_01.log");
-		
+
 		output_conf.put("type", "job");
 		output_conf.remove("config")
-		
+
 		conf.put("input",input_conf);
 		conf.put("filter",filter);
 		conf.put("output",output_conf);
-		svc.runLogStat(conf)
+		result = svc.runLogStat(conf)
+		expected = (new File(wd + "/src/test/resources/data_test/output/expected/expected_testString_02.log")).text
+		assertNotNull(result)
+		assertEquals(expected, result);
 	}
+
 }

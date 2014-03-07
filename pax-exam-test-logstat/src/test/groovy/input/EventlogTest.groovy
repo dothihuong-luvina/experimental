@@ -110,6 +110,7 @@ public class EventlogTest {
 
 	@After
 	public void finish() {
+				
 	}
 	/**
 	 * Test for case : full parameters

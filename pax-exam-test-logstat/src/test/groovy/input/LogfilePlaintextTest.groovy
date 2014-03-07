@@ -81,6 +81,7 @@ public class LogfilePlaintextTest {
 				"message" : '^.*$'
 			]
 		]
+		
 		input_conf.put("input_type", "file");
 	}
 
@@ -106,7 +107,7 @@ public class LogfilePlaintextTest {
 			input_conf.put("start_pos", 3);
 			input_conf.put("asc_by_fname", true);
 			test_common.cleanData("src/test/resources/data_test/input/testPlainText/output/testPlainTextByLine0.output")
-			def outFile = ["path":"src/test/resources/data_test/input/testPlainText/output/testPlainTextByDate0.output"]
+			def outFile = ["path":"src/test/resources/data_test/input/testPlainText/output/testPlainTextByLine0.output"]
 			output_conf.put("config", outFile)
 			conf.put("input",input_conf);
 			conf.put("filter",filter_conf);
@@ -136,7 +137,7 @@ public class LogfilePlaintextTest {
 			input_conf.put("start_pos", 3);
 			input_conf.put("asc_by_fname", true);
 			test_common.cleanData("src/test/resources/data_test/input/testPlainText/output/testPlainTextByLine1.output")
-			def outFile = ["path":"src/test/resources/data_test/input/testPlainText/output/testPlainTextByDate1.output"]
+			def outFile = ["path":"src/test/resources/data_test/input/testPlainText/output/testPlainTextByLine1.output"]
 			output_conf.put("config", outFile)
 			conf.put("input",input_conf);
 			conf.put("filter",filter_conf);
@@ -150,7 +151,7 @@ public class LogfilePlaintextTest {
 	/**
 	 * Test for case : missing 'monitor_type','start_file_name' parameters
 	 * Input : Log files in src/test/resources/data_test/input/testPlainText/*.log
-	 * Expected : output file contains 18 records with format
+	 * Expected : output file contains 28 records with format
 	 * {"date"=>[the_log_date], "time"=>[the_log_time], "message"=>[full_log_message]}
 	 * Detail in "src/test/resources/data_test/input/testPlainText/expected/testPlainTextByLine2.output"
 	 */
@@ -165,8 +166,8 @@ public class LogfilePlaintextTest {
 			input_conf.put("start_pos", 3);
 			input_conf.put("asc_by_fname", true);
 			test_common.cleanData("src/test/resources/data_test/input/testPlainText/output/testPlainTextByLine2.output")
-			output_conf.put("destination", "src/test/resources/data_test/input/testPlainText/output/testPlainTextByLine2.output");
-
+			def outFile = ["path":"src/test/resources/data_test/input/testPlainText/output/testPlainTextByLine2.output"]
+			output_conf.put("config", outFile)
 			conf.put("input",input_conf);
 			conf.put("filter",filter_conf);
 			conf.put("output",output_conf);
@@ -194,8 +195,8 @@ public class LogfilePlaintextTest {
 			//input_conf.put("start_pos", 3);
 			input_conf.put("asc_by_fname", true);
 			test_common.cleanData("src/test/resources/data_test/input/testPlainText/output/testPlainTextByLine3.output")
-			output_conf.put("destination", "src/test/resources/data_test/input/testPlainText/output/testPlainTextByLine3.output");
-
+			def outFile = ["path":"src/test/resources/data_test/input/testPlainText/output/testPlainTextByLine3.output"]
+			output_conf.put("config", outFile)
 			conf.put("input",input_conf);
 			conf.put("filter",filter_conf);
 			conf.put("output",output_conf);
@@ -222,8 +223,8 @@ public class LogfilePlaintextTest {
 			//input_conf.put("start_pos", 3);
 			//input_conf.put("asc_by_fname", true);
 			test_common.cleanData("src/test/resources/data_test/input/testPlainText/output/testPlainTextByLine4.output")
-			output_conf.put("destination", "src/test/resources/data_test/input/testPlainText/output/testPlainTextByLine4.output");
-
+			def outFile = ["path":"src/test/resources/data_test/input/testPlainText/output/testPlainTextByLine4.output"]
+			output_conf.put("config", outFile)
 			conf.put("input",input_conf);
 			conf.put("filter",filter_conf);
 			conf.put("output",output_conf);
@@ -252,8 +253,8 @@ public class LogfilePlaintextTest {
 			input_conf.put("start_pos", 3);
 			input_conf.put("asc_by_fname", false);
 			test_common.cleanData("src/test/resources/data_test/input/testPlainText/output/testPlainTextByLine5.output")
-			output_conf.put("destination", "src/test/resources/data_test/input/testPlainText/output/testPlainTextByLine5.output");
-
+			def outFile = ["path":"src/test/resources/data_test/input/testPlainText/output/testPlainTextByLine5.output"]
+			output_conf.put("config", outFile)
 			conf.put("input",input_conf);
 			conf.put("filter",filter_conf);
 			conf.put("output",output_conf);
@@ -285,8 +286,8 @@ public class LogfilePlaintextTest {
 			input_conf.put("from_date", "2014-02-05");
 			input_conf.put("asc_by_fname", true);
 			test_common.cleanData("src/test/resources/data_test/input/testPlainText/output/testPlainTextByDate0.output")
-			output_conf.put("destination", "src/test/resources/data_test/input/testPlainText/output/testPlainTextByDate0.output");
-
+			def outFile = ["path":"src/test/resources/data_test/input/testPlainText/output/testPlainTextByDate0.output"]
+			output_conf.put("config", outFile)
 			conf.put("input",input_conf);
 			conf.put("filter",filter_conf);
 			conf.put("output",output_conf);
@@ -296,7 +297,6 @@ public class LogfilePlaintextTest {
 			println ex
 		}
 	}
-	//-----------------Test input log from plaintext by date-----------------------------------
 
 	/**
 	 * Test for case : full parameters with 'asc_by_fname' = false (logs file in folder sort by ASC)

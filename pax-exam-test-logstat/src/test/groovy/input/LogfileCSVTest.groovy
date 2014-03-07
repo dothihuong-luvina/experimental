@@ -248,7 +248,7 @@ public class LogfileCSVTest {
 	/**
 	 * Test for case : full parameters with 'asc_by_fname' = false (logs file in folder sort by DESC)
 	 * Input : Log filesin src/test/resources/data_test/input/testCSV/*.csv
-	 * Expected : output file contains 14 records with format
+	 * Expected : output file contains 18 records with format
 	 * {"date"=>[the_log_date], "time"=>[the_log_time], "message"=>[full_log_message]}
 	 * Detail in "src/test/resources/data_test/input/testCSV/expected/testCSVByLine5.output"
 	 */

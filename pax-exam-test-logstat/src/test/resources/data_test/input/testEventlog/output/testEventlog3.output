@@ -1,2 +1,2 @@
-{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140304144149.000000+420", "message"=>"2-This is another error event of LOGSTAT application\r\n"}
-{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140304144148.000000+420", "message"=>"1-This is an error event of LOGSTAT application \r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140306165631.000000+420", "message"=>"2-This is another error event of LOGSTAT application\r\n"}
+{"source_name"=>"LOGSTAT", "type"=>"ERROR", "time"=>"20140306165630.000000+420", "message"=>"1-This is an error event of LOGSTAT application \r\n"}
